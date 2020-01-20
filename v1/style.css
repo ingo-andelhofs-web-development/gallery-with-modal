@@ -1,0 +1,78 @@
+:root {
+    --gallery-spacing: 2px;
+    --gallery-columns: 4;
+}
+
+/*-------------------- gallery --------------------*/
+* {margin: 0; padding: 0; box-sizing: border-box;}
+div.gallery {width: 100%; padding: var(--gallery-spacing);}
+div.gallery > div {
+    float: left;
+    position: relative;
+    width: calc((100% / var(--gallery-columns)) - (2 * var(--gallery-spacing)));     
+    padding-bottom: calc((100% / var(--gallery-columns)) - (2 * var(--gallery-spacing)));
+    margin: var(--gallery-spacing);
+    border: none;
+    overflow: hidden;
+    border: 1px solid grey;
+}div.gallery > div > img.l {
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}div.gallery > div > img.p {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}div.gallery:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    :root {
+        --gallery-columns: 2;
+    }
+}@media screen and (max-width: 400px) {
+    :root {
+        --gallery-columns: 1;
+    }
+}
+
+
+/*-------------------- modal --------------------*/
+.hidden {
+    opacity: 0;
+}
+.overlay {
+    z-index: 1000;
+    position: fixed;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    background-color: rgba(62, 62, 62, 0.85);
+    
+    transition: all .5s ease; 
+}
+.overlay > div > img {
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: calc(92vw - 8px);
+    max-height: calc(92vh - 50px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 3px;
+    /*padding-bottom: 45px;*/
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 5px 5px 20px #3e3e3e;
+}
+
+
+
+
+
+

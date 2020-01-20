@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- angularJs -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+</head>
+<body ng-app="blog">
+
+
+<div class="gallery" ng-controller="gallery">
+    <div ng-repeat="image in gallery">
+        <img ng-src="{{image.imgSrc}}">
+    </div>
+</div>
+
+
+<!-- scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<!-- appscript --><script src="js/app.js"></script>
+<!-- modal --><script src="js/script.js"></script>
+</body>
+</html>

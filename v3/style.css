@@ -1,0 +1,90 @@
+:root {
+    --gallery-spacing: 1px;
+    --gallery-columns: 6;
+    --gallery-border: none;
+}
+
+
+/*-------------------- gallery --------------------*/
+* {margin: 0; padding: 0; box-sizing: border-box;}
+div.gallery {width: 100%; padding: var(--gallery-spacing);}
+div.gallery > div {
+    float: left;
+    position: relative;
+    width: calc((100% / var(--gallery-columns)) - (2 * var(--gallery-spacing)));
+    padding-bottom: calc((100% / var(--gallery-columns)) - (2 * var(--gallery-spacing)));
+    margin: var(--gallery-spacing);
+    overflow: hidden;
+    border: var(--gallery-border);
+}div.gallery > div > img.l {
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+}div.gallery > div > img.p {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+}div.gallery:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    :root {
+        --gallery-columns: 3;
+    }
+}@media screen and (max-width: 300px) {
+    :root {
+        --gallery-columns: 1;
+    }
+    div.gallery > div {
+        padding: 0;
+    }
+    div.gallery > div > img.p, div.gallery > div > img.l {
+        width: 100%;
+        margin-bottom: -4px;
+        top: 0;
+        left: 0;
+        position: relative;
+        -webkit-transform: none;
+                transform: none;
+    }
+}
+
+/*-------------------- modal --------------------*/
+.overlay {
+    z-index: 1000;
+    position: fixed;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    background-color: rgba(62, 62, 62, 0.85);
+
+    -webkit-transition: all .5s ease;
+
+    transition: all .5s ease;
+}
+.overlay > div > img {
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: calc(100vw - 6px - 30px);
+    max-height: calc(100vh - 6px - 30px);
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    padding: 3px;
+    /*padding-bottom: 45px;*/
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 5px 5px 20px #3e3e3e;
+}
+
+
+
+/*-------------------- other stuff --------------------*/
